@@ -1,4 +1,0 @@
-/**
- * windesheimtechnologieprojectconsole project.
- */
-package windesheimtechnologieprojectconsole;

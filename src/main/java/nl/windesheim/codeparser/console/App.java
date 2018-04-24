@@ -1,14 +1,15 @@
-package windesheimtechnologieprojectconsole;
+package nl.windesheim.codeparser.console;
 
 /**
- * Main class for the Console project.
+ * Hello world!
+ *
  */
-public final class Main {
+public final class App {
 
     /**
      * Private constructor.
      */
-    private Main() {
+    private App() {
     }
 
     /**
@@ -26,5 +27,4 @@ public final class Main {
             }
         }
     }
-
 }
