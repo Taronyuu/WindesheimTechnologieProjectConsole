@@ -1,4 +1,4 @@
-package WindesheimTechnologieProjectConsole;
+package windesheimtechnologieprojectconsole;
 
 /**
  * Main class for the Console project.
