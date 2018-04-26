@@ -41,6 +41,7 @@ public final class App {
                 }
 
                 for (IDesignPattern p : patterns) {
+                    // TODO Print here the result.
                     System.out.println("Found: " + p.toString());
                 }
             }
