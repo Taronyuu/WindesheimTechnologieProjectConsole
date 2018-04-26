@@ -2,7 +2,6 @@ package nl.windesheim.codeparser.console;
 
 /**
  * Hello world!
- *
  */
 public final class App {
 
