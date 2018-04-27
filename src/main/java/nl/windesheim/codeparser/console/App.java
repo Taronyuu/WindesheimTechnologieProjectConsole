@@ -1,7 +1,12 @@
 package nl.windesheim.codeparser.console;
 
+import nl.windesheim.codeparser.ClassPart;
 import nl.windesheim.codeparser.FileAnalysisProvider;
 import nl.windesheim.codeparser.patterns.IDesignPattern;
+import nl.windesheim.codeparser.patterns.Singleton;
+import nl.windesheim.reporting.builders.CodeReportBuilder;
+import nl.windesheim.reporting.builders.SingletonFoundPatternBuilder;
+import nl.windesheim.reporting.components.CodeReport;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +23,6 @@ public final class App {
      * @param args default arguments
      */
     private App(final String[] args) {
-
         if (args.length == 0) {
             System.out.println("Files in argument given.");
         } else {
@@ -40,10 +44,19 @@ public final class App {
                             + ex.getMessage());
                 }
 
+                CodeReportBuilder codeReportBuilder = new CodeReportBuilder();
                 for (IDesignPattern p : patterns) {
-                    // TODO Print here the result.
-                    System.out.println("Found: " + p.toString());
+
+                    if (p instanceof Singleton) {
+                        ClassPart classPart = ((Singleton) p).getClassPart();
+                        String fileName = classPart.getFile().getName();
+                        SingletonFoundPatternBuilder singletonFoundPatternBuilder = new SingletonFoundPatternBuilder(fileName);
+                        codeReportBuilder.addFoundPatternBuilder(singletonFoundPatternBuilder);
+                    }
                 }
+
+                CodeReport codeReport = codeReportBuilder.buildReport();
+                System.out.println(codeReport.getReport());
             }
         }
     }
