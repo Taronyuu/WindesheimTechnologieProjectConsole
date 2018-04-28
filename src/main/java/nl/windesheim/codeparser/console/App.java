@@ -1,11 +1,9 @@
 package nl.windesheim.codeparser.console;
 
-import nl.windesheim.codeparser.ClassPart;
 import nl.windesheim.codeparser.FileAnalysisProvider;
 import nl.windesheim.codeparser.patterns.IDesignPattern;
-import nl.windesheim.codeparser.patterns.Singleton;
+import nl.windesheim.reporting.Report;
 import nl.windesheim.reporting.builders.CodeReportBuilder;
-import nl.windesheim.reporting.builders.SingletonFoundPatternBuilder;
 import nl.windesheim.reporting.components.CodeReport;
 
 import java.io.File;
@@ -44,14 +42,12 @@ public final class App {
                             + ex.getMessage());
                 }
 
-                CodeReportBuilder codeReportBuilder = new CodeReportBuilder();
+                CodeReportBuilder codeReportBuilder = Report.create();
                 for (IDesignPattern p : patterns) {
-
-                    if (p instanceof Singleton) {
-                        ClassPart classPart = ((Singleton) p).getClassPart();
-                        String fileName = classPart.getFile().getName();
-                        SingletonFoundPatternBuilder singletonFoundPatternBuilder = new SingletonFoundPatternBuilder(fileName);
-                        codeReportBuilder.addFoundPatternBuilder(singletonFoundPatternBuilder);
+                    try {
+                        codeReportBuilder.addFoundPatternBuilder(Report.getMapper().getBuilder(p));
+                    } catch (NullPointerException ex) {
+                        System.out.println("Something went wrong: " + ex.getMessage());
                     }
                 }
 
