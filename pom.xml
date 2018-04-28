@@ -37,7 +37,7 @@
         <dependency>
             <groupId>com.github.Taronyuu</groupId>
             <artifactId>WindesheimTechnologieProject</artifactId>
-            <version>develop-SNAPSHOT</version>
+            <version>develop</version>
         </dependency>
     </dependencies>
 
