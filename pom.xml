@@ -82,7 +82,7 @@
                     <finalName>${project.artifactId}-${project.version}</finalName>
                     <archive>
                         <manifest>
-                            <mainClass>nl.windesheim.codeparser.console.App</mainClass>
+                            <mainClass>nl.windesheim.codeparser.console.ConsoleApp</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
