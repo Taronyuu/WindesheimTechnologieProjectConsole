@@ -46,8 +46,8 @@ public final class ConsoleApp {
     /**
      * Analyze the design patterns in this file.
      *
-     * @param file
-     * @return
+     * @param file File to be analyzed.
+     * @return List with found design patterns.
      */
     private List<IDesignPattern> analyze(final File file) {
         FileAnalysisProvider analysis = FileAnalysisProvider
