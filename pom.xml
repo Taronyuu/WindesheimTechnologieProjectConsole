@@ -63,6 +63,7 @@
                 <configuration>
                     <failOnViolation>true</failOnViolation>
                     <printFailingErrors>true</printFailingErrors>
+                    <minimumTokens>50</minimumTokens>
                     <rulesets>
                         <ruleset>pmd-ruleset.xml</ruleset>
                     </rulesets>
@@ -70,8 +71,10 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>check</goal>
+                            <goal>pmd</goal>
+                            <goal>cpd</goal>
                             <goal>cpd-check</goal>
+                            <goal>check</goal>
                         </goals>
                     </execution>
                 </executions>
