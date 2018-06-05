@@ -51,7 +51,7 @@
         <dependency>
             <groupId>com.github.Taronyuu</groupId>
             <artifactId>WindesheimTechnologieProject</artifactId>
-            <version>develop</version>
+            <version>master</version>
         </dependency>
     </dependencies>
 
